@@ -1,0 +1,15 @@
+server:
+  port: 8302
+spring:
+  application:
+    name: ribbon-service
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://luke:123456@luke-a:8001/eureka/,http://luke-b:8000/eureka/ #����ע�����ĵ�ַ
+  instance:
+    hostname: localhost
+service-url:
+  eureka-client: http://eureka-client

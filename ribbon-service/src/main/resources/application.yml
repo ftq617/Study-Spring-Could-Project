@@ -1,0 +1,22 @@
+server:
+  port: 8301
+spring:
+  application:
+    name: ribbon-service
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://luke:123456@luke-a:8001/eureka/,http://luke-b:8000/eureka/ #配置注册中心地址
+  instance:
+    hostname: localhost
+service-url:
+  eureka-client: http://eureka-client
+  ribbon:
+    ConnectTimeout: 1 #服务请求连接超时时间（毫秒）
+    ReadTimeout: 1 #服务请求处理超时时间（毫秒）
+    OkToRetryOnAllOperations: true #对超时请求启用重试机制
+    MaxAutoRetriesNextServer: 1 #切换重试实例的最大个数
+    MaxAutoRetries: 1 # 切换实例后重试最大次数
+    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.WeightedResponseTimeRule #修改负载均衡算法

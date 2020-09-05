@@ -1,0 +1,13 @@
+server:
+  port: 8000
+spring:
+  application:
+    name: eureka-server
+eureka:
+  instance:
+    hostname: luke-b
+  client:
+    serviceUrl:
+      defaultZone: http://luke:123456@luke-a:8001/eureka/ #注册到另一个Eureka注册中心
+    fetch-registry: true
+    register-with-eureka: true
