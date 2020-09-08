@@ -1,0 +1,11 @@
+server:
+  port: 8701
+spring:
+  application:
+    name: feign-service
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://luke:123456@luke-a:8001/eureka/,http://luke-b:8000/eureka/ #ÅäÖÃ×¢²áÖĞĞÄµØÖ·

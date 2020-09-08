@@ -13,3 +13,9 @@ eureka:
     hostname: localhost
 service-url:
   eureka-client: http://eureka-client
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: 'hystrix.stream' #暴露hystrix监控端点
