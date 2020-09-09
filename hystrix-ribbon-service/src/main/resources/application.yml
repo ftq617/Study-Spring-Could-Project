@@ -8,7 +8,7 @@ eureka:
     register-with-eureka: true
     fetch-registry: true
     service-url:
-      defaultZone: http://luke:123456@luke-a:8001/eureka/,http://luke-b:8000/eureka/ #����ע�����ĵ�ַ
+      defaultZone: http://luke:123456@luke-a:8001/eureka/,http://luke-b:8000/eureka/
   instance:
     hostname: localhost
 service-url:

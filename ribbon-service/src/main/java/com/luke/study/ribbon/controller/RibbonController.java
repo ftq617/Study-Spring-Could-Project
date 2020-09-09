@@ -33,4 +33,10 @@ public class RibbonController {
         total++;
         return "第"+total+"次请求。"+restTemplate.getForObject(eurekaServer+"/api/test?name="+data,String.class);
     }
+
+    @GetMapping("get")
+    public String getData(String id){
+        log.info("收到请求："+id);
+        return restTemplate.getForObject(eurekaServer+"/data/get?id="+id,String.class);
+    }
 }

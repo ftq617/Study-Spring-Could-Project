@@ -8,15 +8,15 @@ eureka:
     register-with-eureka: true
     fetch-registry: true
     service-url:
-      defaultZone: http://luke:123456@luke-a:8001/eureka/,http://luke-b:8000/eureka/ #ÅäÖÃ×¢²áÖĞĞÄµØÖ·
+      defaultZone: http://luke:123456@luke-a:8001/eureka/,http://luke-b:8000/eureka/ #é…ç½®æ³¨å†Œä¸­å¿ƒåœ°å€
   instance:
     hostname: localhost
 service-url:
   eureka-client: http://eureka-client
   ribbon:
-    ConnectTimeout: 1 #·şÎñÇëÇóÁ¬½Ó³¬Ê±Ê±¼ä£¨ºÁÃë£©
-    ReadTimeout: 1 #·şÎñÇëÇó´¦Àí³¬Ê±Ê±¼ä£¨ºÁÃë£©
-    OkToRetryOnAllOperations: true #¶Ô³¬Ê±ÇëÇóÆôÓÃÖØÊÔ»úÖÆ
-    MaxAutoRetriesNextServer: 1 #ÇĞ»»ÖØÊÔÊµÀıµÄ×î´ó¸öÊı
-    MaxAutoRetries: 1 # ÇĞ»»ÊµÀıºóÖØÊÔ×î´ó´ÎÊı
-    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.WeightedResponseTimeRule #ĞŞ¸Ä¸ºÔØ¾ùºâËã·¨
+    ConnectTimeout: 1 #æœåŠ¡è¯·æ±‚è¿æ¥è¶…æ—¶æ—¶é—´ï¼ˆæ¯«ç§’ï¼‰
+    ReadTimeout: 1 #æœåŠ¡è¯·æ±‚å¤„ç†è¶…æ—¶æ—¶é—´ï¼ˆæ¯«ç§’ï¼‰
+    OkToRetryOnAllOperations: true #å¯¹è¶…æ—¶è¯·æ±‚å¯ç”¨é‡è¯•æœºåˆ¶
+    MaxAutoRetriesNextServer: 1 #åˆ‡æ¢é‡è¯•å®ä¾‹çš„æœ€å¤§ä¸ªæ•°
+    MaxAutoRetries: 1 # åˆ‡æ¢å®ä¾‹åé‡è¯•æœ€å¤§æ¬¡æ•°
+    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.WeightedResponseTimeRule #ä¿®æ”¹è´Ÿè½½å‡è¡¡ç®—æ³•
