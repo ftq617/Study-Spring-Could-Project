@@ -6,9 +6,10 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.context.annotation.ComponentScan;
 
-@EnableFeignClients
+@EnableFeignClients("com.luke.study")
 @EnableDiscoveryClient
 @SpringBootApplication
+@ComponentScan("com.luke.study")
 public class FeignServiceApplication {
 
     public static void main(String[] args) {

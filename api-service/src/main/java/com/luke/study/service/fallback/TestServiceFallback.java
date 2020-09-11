@@ -10,7 +10,8 @@ import org.springframework.stereotype.Component;
  * @Date: 2020/09/09 11:16
  **/
 @Component
-public class TestServiceFallback {
+public class TestServiceFallback implements TestService{
+
     public String getData(String id) {
         return id+" getData 出错了！";
     }

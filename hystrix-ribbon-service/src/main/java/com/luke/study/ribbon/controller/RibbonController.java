@@ -79,7 +79,7 @@ public class RibbonController {
         log.info("1:"+future1.get());
         log.info("2:"+future2.get());
         log.info("3:"+future3.get());
-        return "!@#";
+        return future1.get()+" "+future2.get()+" "+future3.get();
     }
 
 }

@@ -69,7 +69,7 @@ public class RibbonService {
 //    timerDelayInMilliseconds：collapserProperties中的属性，用于控制每隔多少时间合并一次请求；
 
     @HystrixCollapser(batchMethod = "batch",collapserProperties = {
-            @HystrixProperty(name = "timerDelayInMilliseconds", value = "1000")
+            @HystrixProperty(name = "timerDelayInMilliseconds", value = "3000")
     })
     public Future<String> getFuture(String id) {
         return new AsyncResult<String>(){

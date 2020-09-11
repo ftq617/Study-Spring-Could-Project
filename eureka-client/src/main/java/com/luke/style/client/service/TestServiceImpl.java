@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class TestServiceImpl implements TestService {
 
     @Override
-    @PostMapping(GetData)
+    @GetMapping(GetData)
     public String getData(String id) {
         log.info("getData 收到消息：{}",id);
         return GetData+"收到消息："+id;

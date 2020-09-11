@@ -1,7 +1,6 @@
 package com.luke.study.ribbon.controller;
 
 import lombok.extern.slf4j.Slf4j;
-import org.checkerframework.checker.units.qual.A;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -25,18 +24,23 @@ public class RibbonController {
     @Autowired
     private RestTemplate restTemplate;
 
-    private static Integer total=0;
+
 
     @GetMapping("test")
     public String getRibbonData(String data){
         log.info("收到请求："+data);
-        total++;
-        return "第"+total+"次请求。"+restTemplate.getForObject(eurekaServer+"/api/test?name="+data,String.class);
+        return restTemplate.getForObject(eurekaServer+"/api/test?name="+data,String.class);
     }
 
     @GetMapping("get")
     public String getData(String id){
-        log.info("收到请求："+id);
+        log.info("get 收到请求："+id);
         return restTemplate.getForObject(eurekaServer+"/data/get?id="+id,String.class);
+    }
+
+    @GetMapping("post")
+    public String postData(String id){
+        log.info("post 收到请求："+id);
+        return restTemplate.postForObject(eurekaServer+"/data/other?id="+id,"",String.class);
     }
 }

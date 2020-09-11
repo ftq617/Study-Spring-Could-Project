@@ -5,6 +5,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * @ClassName: TestController
  * @Description: 测试服务提供方： controller
@@ -23,5 +26,15 @@ public class TestController {
         log.info("Client B 收到消息："+name);
         total++;
         return "Client B 收到第"+total+"次请求 ："+name;
+    }
+
+    @GetMapping("/list")
+    public List<String> getApiDataList(String name){
+        log.info("Client list A 收到消息："+name);
+        List<String> list=new ArrayList<>();
+        list.add(name+1);
+        list.add(name+2);
+        list.add(name+3);
+        return list;
     }
 }
