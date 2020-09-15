@@ -20,3 +20,16 @@ service-url:
     MaxAutoRetriesNextServer: 1 #切换重试实例的最大个数
     MaxAutoRetries: 1 # 切换实例后重试最大次数
     NFLoadBalancerRuleClassName: com.netflix.loadbalancer.WeightedResponseTimeRule #修改负载均衡算法
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    shutdown:
+      enabled: true
+    health:
+      show-details: always
+logging:
+  file: admin-client.log #添加开启admin的日志监控

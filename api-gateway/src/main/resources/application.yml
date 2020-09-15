@@ -1,0 +1,35 @@
+server:
+  port: 9201
+service-url:
+  ribbon-service: http://localhost:8301
+spring:
+  application:
+    name: api-gateway
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true #开启从注册中心动态创建路由的功能
+          lower-case-service-id: true #使用小写服务名，默认是大写
+      routes:
+        - id: prefixpath_route
+          uri: lb://ribbon-service #此处需要使用lb协议,这样可以使用负载均衡
+          predicates:
+            - Path=/**/get
+          filters:
+            - name: RequestRateLimiter
+              args:
+                redis-rate-limiter.replenishRate: 1 #每秒允许处理的请求数量
+                redis-rate-limiter.burstCapacity: 2 #每秒最大处理的请求数量
+                key-resolver: "#{@ipKeyResolver}" #限流策略，对应策略的Bean
+        - id: path_route #路由的ID
+          uri: ${service-url.ribbon-service} #匹配后路由地址，可以是外部地址
+          predicates: # 断言，路径相匹配的进行路由
+            - Path=/**/post
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8000/eureka/
+logging:
+  level:
+    org.springframework.cloud.gateway: debug

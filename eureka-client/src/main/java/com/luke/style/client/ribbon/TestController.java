@@ -23,9 +23,9 @@ public class TestController {
 
     @GetMapping("/test")
     public String getApiData(String name){
-        log.info("Client A 收到消息："+name);
+        log.info("Client S A 收到消息："+name);
         total++;
-        return "Client A 收到第"+total+"次请求 ："+name;
+        return "Client S A 收到第"+total+"次请求 ："+name;
     }
 
     @GetMapping("/list")
