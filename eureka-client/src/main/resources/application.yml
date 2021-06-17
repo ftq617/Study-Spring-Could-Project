@@ -10,4 +10,6 @@ eureka:
     service-url:
       defaultZone: http://luke:123456@luke-a:8001/eureka/,http://luke-b:8000/eureka/ #配置注册中心地址
   instance:
-    hostname: localhost
+    prefer-ip-address: true # 开启后使用IP
+    ip-address: 127.0.0.1 # 给调用端用的IP(必须上面开启后使用)
+    hostname: localhosts # 必须要使用，否则服务发现的是机器名加端口，不能没有，可以是域名
